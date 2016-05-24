@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+	<!-- 设置浏览器是否缓存静态内容,默认值为true(生产环境下使用),开发阶段最好关闭 -->
+    <constant name="struts.serve.static.browserCache" value="false" />
+    
+    <!-- 当struts的配置文件修改后,系统是否自动重新加载该文件,默认值为false(生产环境下使用),开发阶段最好打开 -->
+    <constant name="struts.configuration.xml.reload" value="true" />
+    
+    <!-- 开发模式下使用,这样可以打印出更详细的错误信息 -->
+    <constant name="struts.devMode" value="true" />
+
+	<package name="default" namespace="/" extends="struts-default">
+		
+		<action name="Logout" class="com.hyc.Actions.LogoutAction" method="execute"></action>
+		
+		<action name="Checkcode" class="com.hyc.Actions.CreateCheckcodeAction">
+			<result name="success" type="stream">
+                <param name="contentType">image/jpeg</param>
+                <param name="inputName">inputStream</param>
+            </result>
+		</action>
+		
+	</package>
+
+	<package name="json" extends="json-default" namespace="/">
+		<!-- 为什么这么配置的细节还不了解 -->
+		<action name="Login" class="com.hyc.Actions.LoginAction" method="execute">
+			<result type="json">
+				<param name="root">data</param>
+			</result>
+		</action>
+		
+		<action name="Register" class="com.hyc.Actions.RegisterAction" method="execute">
+			<result type="json">
+				<param name="root">data</param>
+			</result>
+		</action>
+		
+	</package>
+    
+</struts>
