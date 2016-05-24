@@ -6561,6 +6561,8 @@ button.close {
 }
 .center-text {
 	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 .top-float {
 	position: absolute;

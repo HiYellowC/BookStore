@@ -28,7 +28,7 @@
   		</div>
   	</form>
   	<div class="modal-dialog" style="width:30%">
-  	<a href="#">忘记用户名/密码</a><br>
+  	<a href="forgotpassword.jsp">忘记用户名/密码</a><br>
  	<a href="register.jsp">还没有帐号?点击注册</a>
  	</div>
   <script type="text/javascript" src="/BookStore/js/login.js"></script>

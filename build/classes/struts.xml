@@ -29,6 +29,18 @@
 
 	<package name="json" extends="json-default" namespace="/">
 		<!-- 为什么这么配置的细节还不了解 -->
+		<action name="ResetPassword" class="com.hyc.Actions.ResetPasswordAction" method="execute">
+			<result type="json">
+				<param name="root">data</param>
+			</result>
+		</action>
+		
+		<action name="ForgotPassword" class="com.hyc.Actions.ForgotPasswordAction" method="execute">
+			<result type="json">
+				<param name="root">data</param>
+			</result>
+		</action>
+		
 		<action name="Login" class="com.hyc.Actions.LoginAction" method="execute">
 			<result type="json">
 				<param name="root">data</param>
