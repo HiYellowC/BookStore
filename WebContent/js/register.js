@@ -14,7 +14,9 @@ $("#registerform").submit(function() {
 function solve(data) {
 	if(data.status == "success") {
 		selfAlert(data.text);
-		location.href = "/BookStore";
+		setTimeout(function() {
+			location.href = "/BookStore";
+		}, 3000);
 	}
 	else {
 		if(typeof(data.text) == "undefined") selfAlert("出错了 刷新试试~");

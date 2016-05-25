@@ -34,6 +34,19 @@ public class UserDao extends BaseDao{
 			return true;
 	}
 	
+	public User getByEmail(String email) {
+		Query query = getSession().createQuery("FROM User WHERE email = ?");
+		query.setString(0, email);
+		return (User)query.list().get(0);
+	}
+	
+	public void resetPassword(String password, User user) {
+		user.setPassword(password);
+		System.out.println("userp: " + user.getPassword());
+		getSession().update(user);
+		getTransaction().commit();
+	}
+	
 	public void save(User user) {
 		getSession().save(user);
 		getTransaction().commit();

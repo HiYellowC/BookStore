@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>用户登录</title>
+	<title>忘记密码</title>
   </head>
   <body>
   <jsp:include page="base/navigation.jsp"></jsp:include>
