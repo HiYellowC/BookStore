@@ -34,15 +34,20 @@ private static final long serialVersionUID = 1L;
 		String password = request.getParameter("password");
 		String confirmpassword = request.getParameter("confirmpassword");
 		UserDao userDao = new UserDao();
-		if(password.equals("") || confirmpassword.equals("") || !password.matches(confirmpassword)) {
+		System.out.println("resetcode: " + resetcode);
+		System.out.println("email: " + email);
+		System.out.println("password: " + password);
+		System.out.println("confirmpassword: " + confirmpassword);
+		if(password.equals("") || !password.equals(confirmpassword)) {
 			data.put("status", "fault");
 			data.put("text", "两个密码不一致");
 		}
-		else if(resetcode.equals("") || !resetcode.matches((String)session.getAttribute("resetcode"))) {
+		else if(!resetcode.equals((String)session.getAttribute("resetcode"))) {
 			data.put("status", "fault");
 			data.put("text", "请输入正确的重置码");
 		}
 		else {
+			System.out.println("4resetcode: " + resetcode + "password: " + password);
 			data.put("status", "success");
 			data.put("text", "成功重置密码");
 			userDao.resetPassword(password, userDao.getByEmail(email));
